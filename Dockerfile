@@ -5,10 +5,10 @@ FROM openjdk:17-jdk-slim as builder
 WORKDIR /app
 
 # Copy the jar file into the Docker image
-COPY target/order-service.jar order-service.jar
+COPY target/order-service.jar /app/order-service.jar
 
 # Expose the port the app will run on
 EXPOSE 8081
 
 # Run the Spring Boot application
-ENTRYPOINT ["java", "-jar", "order-service.jar"]
+ENTRYPOINT ["java", "-jar", "/app/order-service.jar"]
